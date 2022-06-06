@@ -149,3 +149,21 @@ body {
 #sentence3 {
 	font-style: italic;
 }
+
+#ikea {
+	position: fixed;
+	bottom: 30%;
+	left: 41%;
+	width: 70px;
+	height: 70px;
+	background-color: aqua;
+}
+
+#apple {
+	position: fixed;
+	bottom: 35%;
+	right: 37%;
+	width: 80px;
+	height: 70px;
+	background-color: red;
+}
