@@ -19,7 +19,7 @@ li ul li {
 }
 
 li ul,
-#hid ul li ul {
+.hid ul li ul {
 	display: none;
 }
 
@@ -27,15 +27,15 @@ li:hover ul {
 	display: block;
 }
 
-#hid:hover ul li ul {
+.hid:hover ul li ul {
 	display: block;
 }
 
-#hid:hover #hid2 ul li ul {
+.hid:hover .hid2 ul li ul {
 	display: none;
 }
 
-#hid:hover #hid2:hover ul li ul {
+.hid:hover .hid2:hover ul li ul {
 	display: block;
 }
 
