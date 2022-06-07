@@ -40,9 +40,15 @@ body {
 
 .mglass {
 	position: fixed;
-	top: 6%;
-	right: 14%;
-	transform: scale(1.5);
+	top: 4%;
+	right: 12.7%;
+	height: 15vh;
+	width: 12.5vw;
+	/* transform: scale(1.5); */
+}
+
+.mglass img {
+	height: 100%;
 }
 
 /* middle boxes */
@@ -68,7 +74,7 @@ body {
 }
 
 #leftbox {
-	height: 45vh;
+	height: 43vh;
 }
 
 #leftbox img,
@@ -92,7 +98,7 @@ body {
 
 #rightbox2 {
 	justify-content: flex-start;
-	height: 45vh;
+	height: 43vh;
 }
 
 #eye {
@@ -114,7 +120,7 @@ body {
 	display: block;
 	background-color: #88ff89;
 	margin-left: 10vw;
-	bottom: 9%;
+	bottom: 6%;
 	width: 26.5vw;
 	height: 17.5vh;
 	box-shadow: 12px 11px 8px;
@@ -154,16 +160,14 @@ body {
 	position: fixed;
 	bottom: 30%;
 	left: 41%;
-	width: 70px;
-	height: 70px;
-	background-color: aqua;
+	width: 3vw;
+	height: 11vh;
 }
 
 #apple {
 	position: fixed;
 	bottom: 35%;
 	right: 37%;
-	width: 80px;
-	height: 70px;
-	background-color: red;
+	width: 5vw;
+	height: 10vh;
 }

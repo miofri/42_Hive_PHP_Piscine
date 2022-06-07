@@ -5,7 +5,6 @@ table {
 }
 
 tr,
-table,
 td {
 	border: 1px solid;
 	padding: 5px 10px;
@@ -22,6 +21,11 @@ table {
 	border: 0px;
 	font-size: 1vmin;
 	font-weight: 100;
+	text-align: left;
+}
+
+.innie td:nth-child(2) {
+	text-align: right;
 }
 
 .nonmetal {
