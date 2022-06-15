@@ -1,0 +1,20 @@
+
+<- Vertex ----------------------------------------------------------------------
+The Vertex class handles Vertex coordinates + homogenous parameter and color.
+
+An instance can be contructed from either just x, y, z (& w) values,
+or those mentioned plus color (from the class Color).
+
+A sample input can be:
+new Vertex( array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0, 'color' => $green ) );
+or without color value:
+new Vertex( array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0 ) );
+or with 'w' (homogenous parameter) value:
+new Vertex( array( 'x' => 9.0, 'y' => 9.0, 'z' => 9.0, 'w' => 3.0 ) );
+
+When not mentioned, default value for color is white (255) and w is 1.0.
+
+Use getter and setter to get & set private values.
+
+Not providing any of the X, Y, or Z value is considered undefined behaviour.
+---------------------------------------------------------------------- Vertex ->
