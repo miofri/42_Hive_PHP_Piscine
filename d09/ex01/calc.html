@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>calc.html</title>
+</head>
+
+<body>
+	<form onsubmit="return false">
+		<label for="fi">First input:</label>
+		<input type="text" id="fi" name="fi"><br>
+		<label for="operator">Choose an operator:</label>
+		<select name="operator" id="operator">
+			<option value="add">+</option>
+			<option value="sub">-</option>
+			<option value="mult">*</option>
+			<option value="div">/</option>
+			<option value="mod">%</option>
+		</select><br>
+		<label for="si">Second input:</label>
+		<input type="text" id="si" name="si"><br>
+		<input type="submit" name="submit_me" id="submit_me" value="Try me!">
+	</form>
+</body>
+<script type="text/javascript">
+	var firstInput;
+	var secondInput;
+	var operator;
+	var result = 0;
+	var tryMeBtn = document.querySelector("#submit_me");
+
+	function printMe() {
+		alert(result);
+		console.log(result);
+		document.querySelector("#fi").value = '';
+		document.querySelector("#si").value = '';
+	}
+	function over9000() {
+		alert("It's over 9000!");
+		console.log("It's over 9000!");
+		document.querySelector("#fi").value = '';
+		document.querySelector("#si").value = '';
+	}
+	function TryMe() {
+		firstInput = parseInt(document.querySelector("#fi").value);
+		secondInput = parseInt(document.querySelector("#si").value);
+		operator = document.querySelector("#operator").value;
+		if (secondInput == 0 && (operator == "mod" || operator == "div")) {
+			over9000();
+		}
+		else if (firstInput >= 0 && secondInput >= 0) {
+			switch (operator) {
+				case 'add':
+					result = firstInput + secondInput;
+					printMe();
+					break;
+				case 'sub':
+					result = firstInput - secondInput;
+					printMe();
+					break;
+				case 'mult':
+					result = firstInput * secondInput;
+					printMe();
+					break;
+				case 'div':
+					result = firstInput / secondInput;
+					printMe();
+					break;
+				case 'mod':
+					result = firstInput % secondInput;
+					printMe();
+					break;
+			}
+		}
+		else (
+			alert("Error : (")
+		)
+	}
+
+	tryMeBtn.addEventListener("click", TryMe);
+
+	function sad() {
+		alert("Please, use me...");
+	}
+	setInterval(sad, 30000);
+</script>
+
+</html>
