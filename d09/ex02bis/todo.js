@@ -1,5 +1,5 @@
-var newList = document.querySelector("#new");
-var ft_list = document.querySelector("#ft_list");
+var newList = $("#new");
+var ft_list = $("#ft_list");
 
 
 var cookies = document.cookie.split(';');
@@ -14,30 +14,25 @@ if (id > 0) {
 }
 
 function cookieAdd(input, cookie_id) {
-	let newDiv = document.createElement("div");
-	newDiv.textContent = input;
-	newDiv.setAttribute("id", cookie_id);
-	newDiv.setAttribute("onclick", "delTask(" + cookie_id + ")");
+	let newDiv = $("<div></div>").attr({id: cookie_id, onclick:"deltask(" + cookie_id + ")"});
+	$(newDiv).text(input);
 	return newDiv;
 }
 
 function todoList(input) {
-	let newDiv = document.createElement("div");
-	newDiv.textContent = input;
-	newDiv.setAttribute("id", id);
-	newDiv.setAttribute("onclick", "delTask(" + id + ")");
+	let newDiv = $("<div></div>").attr({id: id, onclick:"deltask(" + id + ")"});
+	$(newDiv).text(input);
 	return newDiv;
 }
 
-function delTask(id){
-	task = document.getElementById(id);
+function deltask(id){
 	if (confirm("Are you sure that you want to remove me?")){
-		ft_list.removeChild(task);
+		$("#" + id).remove();
 		document.cookie = id + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 	}
 }
 
-newList.addEventListener("click", function () {
+newList.on("click", function () {
 	let listPrompt = prompt("New to-do: ");
 	if (listPrompt != '') {
 		id++;

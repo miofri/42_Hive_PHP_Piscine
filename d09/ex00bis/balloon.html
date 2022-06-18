@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>balloon.html</title>
+	<style>
+		#balloon {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="balloon"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+
+</script>
+<script>
+	let balloon = $("#balloon");
+	var color_i = 0;
+	const color = ["red", "green", "blue"];
+
+	balloon.on("click", () =>{
+		color_i++;
+		if (color_i > 2){
+			color_i = 0;
+		}
+		balloon.css("background", color[color_i]);
+		if (balloon.width() < 420){
+			balloon.width(balloon.width() + 10 +'px');
+			balloon.height(balloon.height() + 10 +'px');
+		}
+		else {
+			balloon.width(200 + 'px');
+			balloon.height(200 + 'px');
+		}
+	})
+
+	balloon.on("mouseleave", () =>{
+		color_i--;
+		if (color_i < 0){
+			color_i = 2;
+		}
+		balloon.css("background", color[color_i]);
+		if (balloon.width() > 200){
+			balloon.width((balloon.width() - 5) + 'px');
+			balloon.height((balloon.height() - 5) + 'px');
+		}
+		else{
+			balloon.width(200 + 'px');
+			balloon.height(200 + 'px');
+		}
+	})
+</script>
+
+</html>

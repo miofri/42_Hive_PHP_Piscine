@@ -25,33 +25,41 @@
 		<input type="submit" name="submit_me" id="submit_me" value="Try me!">
 	</form>
 </body>
-
-<script type="text/javascript">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+</script>
+<script>
 	var firstInput;
 	var secondInput;
 	var operator;
 	var result = 0;
-	var tryMeBtn = document.querySelector("#submit_me");
+	var tryMeBtn = $("#submit_me");
 
 	function printMe() {
 		alert(result);
 		console.log(result);
-		document.querySelector("#fi").value = '';
-		document.querySelector("#si").value = '';
+		$("#fi").val() = '';
+		$("#si").val() = '';
 	}
+
 	function over9000() {
 		alert("It's over 9000!");
 		console.log("It's over 9000!");
-		document.querySelector("#fi").value = '';
-		document.querySelector("#si").value = '';
+		$("#fi").val() = '';
+		$("#si").val() = '';
 	}
+
 	function TryMe() {
-		firstInput = parseInt(document.querySelector("#fi").value);
-		secondInput = parseInt(document.querySelector("#si").value);
-		operator = document.querySelector("#operator").value;
-		if (secondInput == 0 && (operator == "mod" || operator == "div")) {
-			over9000();
+		firstInput = parseInt($("#fi").val());
+		secondInput = parseInt($("#si").val());
+		operator = $("#operator").val();
+		if (!parseInt(firstInput) || !parseInt(secondInput))
+		{
+			$("#fi").val() = '';
+			$("#si").val() = '';
+			return alert("Error : (");
 		}
+		if (secondInput == 0 && (operator == "mod" || operator == "div"))
+			over9000();
 		else if (firstInput >= 0 && secondInput >= 0) {
 			switch (operator) {
 				case 'add':
@@ -81,7 +89,7 @@
 		)
 	}
 
-	tryMeBtn.addEventListener("click", TryMe);
+	tryMeBtn.on("click", TryMe);
 
 	function sad() {
 		alert("Please, use me...");
