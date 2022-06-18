@@ -21,17 +21,17 @@ function cookieAdd(input, cookie_id) {
 	return newDiv;
 }
 
-function todoList(input) {
+function todoList(input, firstChild) {
 	let newDiv = document.createElement("div");
 	newDiv.textContent = input;
-	newDiv.setAttribute("id", id);
-	newDiv.setAttribute("onclick", "delTask(" + id + ")");
+	newDiv.setAttribute("id", firstChild);
+	newDiv.setAttribute("onclick", "delTask(" + firstChild + ")");
 	return newDiv;
 }
 
-function delTask(id){
+function delTask(id) {
 	task = document.getElementById(id);
-	if (confirm("Are you sure that you want to remove me?")){
+	if (confirm("Are you sure that you want to remove me?")) {
 		ft_list.removeChild(task);
 		document.cookie = id + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 	}
@@ -40,8 +40,9 @@ function delTask(id){
 newList.addEventListener("click", function () {
 	let listPrompt = prompt("New to-do: ");
 	if (listPrompt != '') {
-		id++;
-		document.cookie = id + "=" + listPrompt;
-		ft_list.prepend(todoList(listPrompt));
+		let firstChild = parseInt(document.getElementById("ft_list").firstChild.id);
+		firstChild = firstChild + 1;
+		document.cookie = firstChild + "=" + listPrompt;
+		ft_list.prepend(todoList(listPrompt, firstChild));
 	}
 })

@@ -11,7 +11,7 @@
 <body>
 	<form onsubmit="return false">
 		<label for="fi">First input:</label>
-		<input type="text" id="fi" name="fi"><br>
+		<input type="text" id="fi" name="fi">
 		<label for="operator">Choose an operator:</label>
 		<select name="operator" id="operator">
 			<option value="add">+</option>
@@ -19,14 +19,15 @@
 			<option value="mult">*</option>
 			<option value="div">/</option>
 			<option value="mod">%</option>
-		</select><br>
+		</select>
 		<label for="si">Second input:</label>
 		<input type="text" id="si" name="si"><br>
 		<input type="submit" name="submit_me" id="submit_me" value="Try me!">
 	</form>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+	</script>
 <script>
 	var firstInput;
 	var secondInput;
@@ -34,26 +35,39 @@
 	var result = 0;
 	var tryMeBtn = $("#submit_me");
 
+	function emptyMe() {
+		$("#fi").val('');
+		$("#si").val('');
+	}
+
 	function printMe() {
 		alert(result);
 		console.log(result);
-		$("#fi").val('');
-		$("#si").val('');
+		emptyMe();
 	}
 
 	function over9000() {
 		alert("It's over 9000!");
 		console.log("It's over 9000!");
-		$("#fi").val('');
-		$("#si").val('');
+		emptyMe();
 	}
 
 	function TryMe() {
-		if (isNaN($("#fi").val()) == true || isNaN($("#si").val()) == true)
+
+		var reg = /^[0-9]+$/;
+		var fi;
+		fi = $("#fi").val();
+		si = $("#si").val();
+
+		if (reg.test(fi) == false || reg.test(si) == false) {
+			emptyMe();
 			return alert("Error : (");
+		}
+
 		firstInput = parseInt($("#fi").val());
 		secondInput = parseInt($("#si").val());
 		operator = $("#operator").val();
+
 		if (secondInput == 0 && (operator == "mod" || operator == "div"))
 			over9000();
 		else if (firstInput >= 0 && secondInput >= 0) {

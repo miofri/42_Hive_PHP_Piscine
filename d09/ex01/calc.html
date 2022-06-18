@@ -11,7 +11,7 @@
 <body>
 	<form onsubmit="return false">
 		<label for="fi">First input:</label>
-		<input type="text" id="fi" name="fi"><br>
+		<input type="text" id="fi" name="fi">
 		<label for="operator">Choose an operator:</label>
 		<select name="operator" id="operator">
 			<option value="add">+</option>
@@ -19,7 +19,7 @@
 			<option value="mult">*</option>
 			<option value="div">/</option>
 			<option value="mod">%</option>
-		</select><br>
+		</select>
 		<label for="si">Second input:</label>
 		<input type="text" id="si" name="si"><br>
 		<input type="submit" name="submit_me" id="submit_me" value="Try me!">
@@ -33,24 +33,37 @@
 	var result = 0;
 	var tryMeBtn = document.querySelector("#submit_me");
 
+	function emptyMe() {
+		document.querySelector("#fi").value = '';
+		document.querySelector("#si").value = '';
+	}
+
 	function printMe() {
 		alert(result);
 		console.log(result);
-		document.querySelector("#fi").value = '';
-		document.querySelector("#si").value = '';
+		emptyMe();
 	}
+
 	function over9000() {
 		alert("It's over 9000!");
 		console.log("It's over 9000!");
-		document.querySelector("#fi").value = '';
-		document.querySelector("#si").value = '';
+		emptyMe();
 	}
 	function TryMe() {
-		if (isNaN(document.querySelector("#fi").value) == true || isNaN(document.querySelector("#si").value) == true)
+		var reg = /^[0-9]+$/;
+		var fi;
+		fi = document.querySelector("#fi").value;
+		si = document.querySelector("#si").value;
+
+		if (reg.test(fi) == false || reg.test(si) == false) {
+			emptyMe();
 			return alert("Error : (");
+		}
+
 		firstInput = parseInt(document.querySelector("#fi").value);
 		secondInput = parseInt(document.querySelector("#si").value);
 		operator = document.querySelector("#operator").value;
+
 		if (secondInput == 0 && (operator == "mod" || operator == "div"))
 			over9000();
 		else if (firstInput >= 0 && secondInput >= 0) {
