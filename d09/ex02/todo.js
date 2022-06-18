@@ -1,45 +1,47 @@
 var newList = document.querySelector("#new");
 var ft_list = document.querySelector("#ft_list");
 
-let cookies = document.cookie.split(';');
-let id = document.cookie ? cookies.length : 0;
+
+var cookies = document.cookie.split(';');
+var id = document.cookie ? cookies.length : 0;
+var cookie_id = 0;
 
 if (id > 0) {
 	cookies.forEach((element) => {
-		id = element.split('=')[0].trim();
-		ft_list.prepend(todoList(element.split('=')[1], id));
+		cookie_id = element.split('=')[0].trim();
+		ft_list.prepend(cookieAdd(element.split('=')[1], cookie_id));
 	});
+}
+
+function cookieAdd(input, cookie_id) {
+	let newDiv = document.createElement("div");
+	newDiv.textContent = input;
+	newDiv.setAttribute("id", cookie_id);
+	newDiv.setAttribute("onclick", "delTask(" + cookie_id + ")");
+	return newDiv;
 }
 
 function todoList(input) {
 	let newDiv = document.createElement("div");
 	newDiv.textContent = input;
+	newDiv.setAttribute("id", id);
+	newDiv.setAttribute("onclick", "delTask(" + id + ")");
 	return newDiv;
 }
 
 newList.addEventListener("click", function () {
 	let listPrompt = prompt("New to-do: ");
 	if (listPrompt != '') {
-		// ft_list.prepend(todoList(listPrompt));
 		id++;
 		document.cookie = id + "=" + listPrompt;
-		addToDom(listPrompt, id);
+		ft_list.prepend(todoList(listPrompt));
 	}
 })
 
-// (function () {
-// 	var cookies = document.cookie.split("; ");
-// 	for (var c = 0; c < cookies.length; c++) {
-// 		var d = window.location.hostname.split(".");
-// 		while (d.length > 0) {
-// 			var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
-// 			var p = location.pathname.split('/');
-// 			document.cookie = cookieBase + '/';
-// 			while (p.length > 0) {
-// 				document.cookie = cookieBase + p.join('/');
-// 				p.pop();
-// 			};
-// 			d.shift();
-// 		}
-// 	}
-// })();
+function delTask(id){
+	task = document.getElementById(id);
+	if (confirm("Are you sure that you want to remove me?")){
+		ft_list.removeChild(task);
+		document.cookie = id + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+	}
+}
