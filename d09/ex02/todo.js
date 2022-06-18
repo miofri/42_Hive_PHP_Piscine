@@ -6,6 +6,8 @@ var cookies = document.cookie.split(';');
 var id = document.cookie ? cookies.length : 0;
 var cookie_id = 0;
 
+document.cookie = "SL_wptGlobTipTmp=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
 if (id > 0) {
 	cookies.forEach((element) => {
 		cookie_id = element.split('=')[0].trim();
@@ -29,6 +31,14 @@ function todoList(input) {
 	return newDiv;
 }
 
+function delTask(id){
+	task = document.getElementById(id);
+	if (confirm("Are you sure that you want to remove me?")){
+		ft_list.removeChild(task);
+		document.cookie = id + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+	}
+}
+
 newList.addEventListener("click", function () {
 	let listPrompt = prompt("New to-do: ");
 	if (listPrompt != '') {
@@ -37,11 +47,3 @@ newList.addEventListener("click", function () {
 		ft_list.prepend(todoList(listPrompt));
 	}
 })
-
-function delTask(id){
-	task = document.getElementById(id);
-	if (confirm("Are you sure that you want to remove me?")){
-		ft_list.removeChild(task);
-		document.cookie = id + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-	}
-}
