@@ -30,6 +30,11 @@
 		if (size > 420) {
 			balloon.style.height = 200 + 'px';
 			balloon.style.width = 200 + 'px';
+			color_i = color_i + 1;
+			if (color_i > 2)
+				color_i = 0;
+			balloon.style.background = color[color_i];
+			size = 200;
 		}
 		else {
 			balloon.style.height = size + 'px';

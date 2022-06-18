@@ -37,27 +37,23 @@
 	function printMe() {
 		alert(result);
 		console.log(result);
-		$("#fi").val() = '';
-		$("#si").val() = '';
+		$("#fi").val('');
+		$("#si").val('');
 	}
 
 	function over9000() {
 		alert("It's over 9000!");
 		console.log("It's over 9000!");
-		$("#fi").val() = '';
-		$("#si").val() = '';
+		$("#fi").val('');
+		$("#si").val('');
 	}
 
 	function TryMe() {
+		if (isNaN($("#fi").val()) == true || isNaN($("#si").val()) == true)
+			return alert("Error : (");
 		firstInput = parseInt($("#fi").val());
 		secondInput = parseInt($("#si").val());
 		operator = $("#operator").val();
-		if (!parseInt(firstInput) || !parseInt(secondInput))
-		{
-			$("#fi").val() = '';
-			$("#si").val() = '';
-			return alert("Error : (");
-		}
 		if (secondInput == 0 && (operator == "mod" || operator == "div"))
 			over9000();
 		else if (firstInput >= 0 && secondInput >= 0) {

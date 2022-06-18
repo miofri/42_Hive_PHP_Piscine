@@ -46,12 +46,13 @@
 		document.querySelector("#si").value = '';
 	}
 	function TryMe() {
+		if (isNaN(document.querySelector("#fi").value) == true || isNaN(document.querySelector("#si").value) == true)
+			return alert("Error : (");
 		firstInput = parseInt(document.querySelector("#fi").value);
 		secondInput = parseInt(document.querySelector("#si").value);
 		operator = document.querySelector("#operator").value;
-		if (secondInput == 0 && (operator == "mod" || operator == "div")) {
+		if (secondInput == 0 && (operator == "mod" || operator == "div"))
 			over9000();
-		}
 		else if (firstInput >= 0 && secondInput >= 0) {
 			switch (operator) {
 				case 'add':
