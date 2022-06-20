@@ -40,7 +40,11 @@ function delTask(id) {
 newList.addEventListener("click", function () {
 	let listPrompt = prompt("New to-do: ");
 	if (listPrompt != '') {
-		let firstChild = parseInt(document.getElementById("ft_list").firstChild.id);
+		let firstChild;
+		if (!(ft_list.firstChild))
+			firstChild = 0;
+		else
+			firstChild = parseInt(document.getElementById("ft_list").firstChild.id);
 		firstChild = firstChild + 1;
 		document.cookie = firstChild + "=" + listPrompt;
 		ft_list.prepend(todoList(listPrompt, firstChild));

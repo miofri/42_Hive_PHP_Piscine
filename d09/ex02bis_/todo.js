@@ -35,11 +35,7 @@ function deltask(id) {
 newList.on("click", function () {
 	let listPrompt = prompt("New to-do: ");
 	if (listPrompt != '') {
-		let firstChild;
-		if (!(ft_list.is(':parent')))
-			firstChild = 0;
-		else
-			firstChild = parseInt($("#ft_list div:first-child").attr('id'));
+		let firstChild = parseInt($("#ft_list div:first-child").attr('id'));
 		firstChild = firstChild + 1;
 		document.cookie = firstChild + "=" + listPrompt;
 		ft_list.prepend(todoList(listPrompt, firstChild));
