@@ -19,10 +19,10 @@
 				echo "OK\n";
 			}
 			else
-				echo "ERROR";
+				echo "ERROR\n";
 		}
 		else
-			echo "ERROR";
+			echo "ERROR\n";
 	}
 	else
 		echo "ERROR\n";
