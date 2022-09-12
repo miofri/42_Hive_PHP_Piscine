@@ -14,24 +14,28 @@
 		h1 {
 			color: white;
 			text-align: center;
-			font-size: 72px;
+			font-size: 10vh;
 		}
 
 		.parent {
 			margin: 16px;
 			padding: 32px 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.child img {
+			padding-left: 32px;
+			max-width: 100%;
+		}
+
+		.child p {
 			text-align: center;
 		}
 
-		.child {
-			display: inline-block;
-			padding: 16px 16px;
-			vertical-align: middle;
-			width: 500px;
-		}
-
 		#image2 {
-			width: 100%;
+			width: 400px;
 		}
 
 		#bottom {
@@ -39,6 +43,7 @@
 			font-style: italic;
 			text-align: right;
 		}
+
 	</style>
 </head>
 
@@ -51,7 +56,7 @@
 		</div>
 		<div class="child">
 			<img id="image2" src="https://upload.wikimedia.org/wikipedia/fi/4/42/Verkkokauppa.com_logo.svg">
-			<p><a href="https://www.mustijamirri.fi">Visit Verkkokauppa</a></p>
+			<p><a href="https://www.verkkokauppa.com">Visit Verkkokauppa</a></p>
 		</div>
 	</div>
 	<hr>

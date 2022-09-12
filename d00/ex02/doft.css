@@ -40,9 +40,9 @@ body {
 
 .mglass {
 	position: fixed;
-	top: 4%;
+	top: 10%;
 	right: 12.7%;
-	height: 15vh;
+	height: 12%;
 	width: 12.5vw;
 	/* transform: scale(1.5); */
 }
