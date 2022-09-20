@@ -26,7 +26,6 @@ body {
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: space-between;
-
 }
 
 #closebtn {
@@ -40,10 +39,10 @@ body {
 
 .mglass {
 	position: fixed;
-	top: 10%;
-	right: 12.7%;
-	height: 12%;
-	width: 12.5vw;
+	top: 4em;
+	right: 14.2%;
+	height: 15%;
+	width: 12.5%;
 	/* transform: scale(1.5); */
 }
 
@@ -117,23 +116,29 @@ body {
 /* green box */
 .gbox {
 	position: fixed;
-	display: block;
+	/* display: block; */
 	background-color: #88ff89;
-	margin-left: 10vw;
-	bottom: 6%;
-	width: 26.5vw;
-	height: 17.5vh;
+	margin-left: 7vw;
+	bottom: 5%;
+	width: 29%;
+	height: 20%;
 	box-shadow: 12px 11px 8px;
 	border-radius: 10px;
-	padding-left: 8px;
+	padding-left: 0.5%;
 }
 
 .gbox p {
 	padding-left: 10px;
-	padding-top: 5px;
+	padding-top: 2.5%;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	font-size: 0.9vmax;
-	line-height: 2px;
+	font-size: 1vmax;
+	line-height: 1px;
+}
+
+#inline-form {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
 }
 
 #entrez {
@@ -142,14 +147,17 @@ body {
 }
 
 #bonjour {
-	margin-left: 14px;
-	margin-right: 10px;
-	width: 76%;
-	line-height: 20px;
+	margin-left: 1%;
+	margin-right: 1%;
+	/* width: 72%; */
+	/* line-height: 20px; */
+	font-size: 0.8vmax;
 }
 
 #repondre {
-	font-size: 1.2vh;
+	font-size: 0.8vmax;
+	text-align: center;
+	/* width: 20%; */
 }
 
 #sentence3 {
