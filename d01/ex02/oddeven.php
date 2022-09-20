@@ -1,5 +1,4 @@
 #!/usr/bin/php
-
 <?php
 while (1)
 {
@@ -17,7 +16,11 @@ while (1)
 				echo "The number $answer is odd\n";
 		}
 	}
-	else
-		exit(0);
+	if (feof(STDIN)) {
+		exit("^D\n");
+	}
+	else{
+		exit("\n");
+	}
 }
 ?>

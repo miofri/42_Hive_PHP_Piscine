@@ -5,24 +5,27 @@
 			mkdir("../private");
 		if (file_exists("../private/passwd") ===  FALSE)
 			file_put_contents("../private/passwd", null);
-		$us = unserialize(file_get_contents("../private/passwd"));
+		$unserialized = unserialize(file_get_contents("../private/passwd"));
 		$exist = 0;
-		if (!empty($us))
+		if (!empty($unserialized))
 		{
-			foreach ($us as $key => $value)
+			foreach ($unserialized as $key => $value)
 			{
 				if ($value["login"] === $_POST["login"])
 					$exist = 1;
 			}
+			$len = count($unserialized);
 		}
+		else {
+			$len = 0;
+		}
+
 		if ($exist === 1)
 			echo "ERROR\n";
 		else
 		{
-			$test["login"] = $_POST["login"];
-			$test["passwd"] = hash('whirlpool', $_POST["passwd"]);
-			$new_us[] = $test;
-			file_put_contents("../private/passwd", serialize($new_us));
+			$unserialized[$len] = (array) ['login' => $_POST["login"], "passwd" => hash('whirlpool', $_POST["passwd"])];
+			file_put_contents("../private/passwd", serialize($unserialized));
 			echo "OK\n";
 		}
 	}

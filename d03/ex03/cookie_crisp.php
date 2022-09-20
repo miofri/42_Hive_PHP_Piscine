@@ -8,7 +8,7 @@ if ($_GET["name"] && $_GET["action"])
 			setcookie($_GET["name"], $_GET["value"], time() + 3600, "/");
 			break;
 		case ($act === "get"):
-			if (!$_GET["value"] && $_GET["name"] && $_COOKIE[$_GET["name"]])
+			if ($_GET["name"] && $_COOKIE[$_GET["name"]] && count($_GET) === 2)
 				echo $_COOKIE[$_GET["name"]]."\n";
 			break;
 		case ($act === "del"):

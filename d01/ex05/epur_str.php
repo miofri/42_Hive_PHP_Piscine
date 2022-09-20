@@ -4,4 +4,5 @@
 	$string = array_filter($string);
 	$new_string = implode(" ", $string);
 	echo ($new_string);
+	echo "\n";
 ?>

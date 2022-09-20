@@ -1,21 +1,21 @@
 <?php
 	if (file_exists("../private/passwd") && $_POST["login"] && $_POST["oldpw"] && $_POST["newpw"] && $_POST["submit"]  && $_POST["submit"] === "OK")
 	{
-		$us = unserialize(file_get_contents("../private/passwd"));
+		$unserialized = unserialize(file_get_contents("../private/passwd"));
 		$changed = 0;
-		if (!empty($us))
+		if (!empty($unserialized))
 		{
-			foreach ($us as $key => $value)
+			foreach ($unserialized as $key => $value)
 			{
 				if ($value["login"] === $_POST["login"] && $value["passwd"] === hash("whirlpool", $_POST["oldpw"]) && $_POST["oldpw"])
 				{
-						$us[$key]["passwd"] = hash("whirlpool", $_POST["newpw"]);
+						$unserialized[$key]["passwd"] = hash("whirlpool", $_POST["newpw"]);
 						$changed = 1;
 				}
 			}
 			if ($changed === 1)
 			{
-				file_put_contents("../private/passwd", serialize($us));
+				file_put_contents("../private/passwd", serialize($unserialized));
 				echo "OK\n";
 			}
 			else

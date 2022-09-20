@@ -6,4 +6,5 @@
 	array_push($string, $first_item);
 	$string = implode(" ", $string);
 	print($string);
+	echo "\n"
 ?>
